@@ -15,8 +15,8 @@ cell_row = 50
 cell_column = 38
 
 window_title = "badapple"
-screen_width = 1000
-screen_height = 600
+screen_width = 750
+screen_height = 570
 fps = 30
 
 pygame.mixer.pre_init(44100,-16,2,512)
@@ -47,6 +47,7 @@ print("import data successful!")
 
 cell_row = frames["width"]
 cell_column = frames["height"]
+cell_width = frames["cell_width"]
 fps = frames["speed"]
 
 screen_width = cell_row*cell_width
