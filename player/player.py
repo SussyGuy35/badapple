@@ -8,8 +8,7 @@ class Cell(pygame.sprite.Sprite):
         self.rect = pygame.rect.Rect((cell_x)*cell_width,(cell_y)*cell_width,cell_width,cell_width)
     def update(self):
         self.color = this_frame[f"{self.cell[0]},{self.cell[1]}"]
-        pygame.draw.rect(screen,(self.drawcolor[0]*self.color,self.drawcolor[1]*self.color,self.drawcolor[2]*self.color),self.rect)
-        #pygame.draw.rect(screen,(255*self.color,255*self.color,255*self.color),self.rect)
+        pygame.draw.rect(screen,self.drawcolor[self.color],self.rect)
 
 game_title = "badapple"
 screen_width = 900
@@ -27,7 +26,9 @@ cell_row = 50
 cell_column = 38
 cell_width = 18
 
-color = (255,255,255)
+color_black = (0,0,0)
+color_white = (255,255,255)
+color = [color_black,color_white]
 
 badapple = pygame.mixer.Sound("data/badapple.mp3")
 
