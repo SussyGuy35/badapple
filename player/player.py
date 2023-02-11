@@ -9,15 +9,15 @@ class Cell(pygame.sprite.Sprite):
     def update(self):
         self.color = this_frame[f"{self.cell[0]},{self.cell[1]}"]
         pygame.draw.rect(screen,self.drawcolor[self.color],self.rect)
-
+        
+cell_width = 18
 cell_row = 50
 cell_column = 38
-cell_width = 18
 
 window_title = "badapple"
-screen_width = cell_row*cell_width
-screen_height = cell_column*cell_width
-fps = 1
+screen_width = 1000
+screen_height = 600
+fps = 30
 
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
@@ -44,6 +44,14 @@ pygame.display.flip()
 with open("data/badapple.json") as data:
     frames = json.load(data)
 print("import data successful!")
+
+cell_row = frames["width"]
+cell_column = frames["height"]
+fps = frames["speed"]
+
+screen_width = cell_row*cell_width
+screen_height = cell_column*cell_width
+screen = pygame.display.set_mode((screen_width,screen_height))
 
 cell_group = pygame.sprite.Group()
 
