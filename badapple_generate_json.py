@@ -21,5 +21,5 @@ for i in range(1,frames_num+1):
             else: frames_data[f"{x},{y}"] = 0           
     frames[i-1] = frames_data
     frames_data = {}
-with open("badapple.json","w") as file:
+with open("data/badapple.json","w") as file:
     json.dump(frames,file)
