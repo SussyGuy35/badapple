@@ -21,7 +21,12 @@ screen_width = 750
 screen_height = 570
 fps = 30
 
-pygame.mixer.pre_init(44100,-16,2,512)
+try:
+    pygame.mixer.pre_init(44100,-16,2,512)
+    hav_music = True
+except:
+    print("Failed to init pygame.mixer. Will play without audio!")    
+    hav_music = False
 pygame.init()
 screen = pygame.display.set_mode((screen_width,screen_height))
 pygame.display.set_caption(window_title)
@@ -65,7 +70,7 @@ print(f"Created {cell_row*cell_column} cell!")
 
 #print(frames)
 
-badapple.play()
+if hav_music: badapple.play()
 
 while True:
     for event in pygame.event.get():
