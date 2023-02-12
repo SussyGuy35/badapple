@@ -6,7 +6,7 @@ cell_width = 18
 cell_row = 50
 cell_column = 38
 
-window_title = f"Bad apple player v{version} by BachNob. https://github.com/SussyGuy35/badapple"
+window_title = f"Bad Apple!! player v{version} by BachNob. https://github.com/SussyGuy35/badapple"
 screen_width = 800 
 screen_height = 608
 fps = 30
