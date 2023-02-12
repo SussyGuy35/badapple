@@ -30,5 +30,7 @@ frames["width"] = width
 frames["height"] = height
 frames["speed"] = speed
 frames["cell_width"] = cell_width
+print("Creating json...")
 with open("player/data/badapple.json","w") as file:
     json.dump(frames,file)
+print("Create json successful!")
