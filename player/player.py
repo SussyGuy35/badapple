@@ -10,11 +10,13 @@ class Cell(pygame.sprite.Sprite):
         self.color = this_frame[f"{self.cell[0]},{self.cell[1]}"]
         pygame.draw.rect(screen,self.drawcolor[self.color],self.rect)
         
+version = "0.3"
+
 cell_width = 18
 cell_row = 50
 cell_column = 38
 
-window_title = "badapple"
+window_title = f"Bad Apple player {version} by BachNob. https://github.com/SussyGuy35/badapple"
 screen_width = 750
 screen_height = 570
 fps = 30
