@@ -7,8 +7,8 @@ cell_row = 50
 cell_column = 38
 
 window_title = f"Bad apple player v{version} by BachNob. https://github.com/SussyGuy35/badapple"
-screen_width = 750
-screen_height = 570
+screen_width = 800 
+screen_height = 608
 fps = 30
 
 try:
@@ -30,7 +30,7 @@ badapple = pygame.mixer.Sound("data/badapple.mp3")
 
 loading_text = font.render("Loading...",True,(255,255,255))
 loading_text_rect = loading_text.get_rect()
-loading_text_rect.center = (screen_width/2,screen_height/2)
+loading_text_rect.center = (round(screen_width/2),round(screen_height/2))
 
 frames = {}
 frame_index = 0
