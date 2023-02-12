@@ -1,22 +1,12 @@
 import pygame, sys,json
-
-class Cell(pygame.sprite.Sprite):
-    def __init__(self,cell_x,cell_y,cell_width,draw_color):
-        super().__init__()
-        self.cell = (cell_x,cell_y)
-        self.drawcolor = draw_color
-        self.rect = pygame.rect.Rect((cell_x)*cell_width,(cell_y)*cell_width,cell_width,cell_width)
-    def update(self):
-        self.color = this_frame[f"{self.cell[0]},{self.cell[1]}"]
-        pygame.draw.rect(screen,self.drawcolor[self.color],self.rect)
-        
-version = "0.3"
+   
+version = "0.4"
 
 cell_width = 18
 cell_row = 50
 cell_column = 38
 
-window_title = f"Bad Apple player {version} by BachNob. https://github.com/SussyGuy35/badapple"
+window_title = f"Bad apple player v{version} by BachNob. https://github.com/SussyGuy35/badapple"
 screen_width = 750
 screen_height = 570
 fps = 30
@@ -35,7 +25,6 @@ font = pygame.font.Font("data/font.ttf",20)
 
 color_black = (0,0,0)
 color_white = (255,255,255)
-color = [color_black,color_white]
 
 badapple = pygame.mixer.Sound("data/badapple.mp3")
 
@@ -46,6 +35,7 @@ loading_text_rect.center = (screen_width/2,screen_height/2)
 frames = {}
 frame_index = 0
 
+screen.fill(color_black)
 screen.blit(loading_text,loading_text_rect)
 pygame.display.flip()
 with open("data/badapple.json") as data:
@@ -63,13 +53,6 @@ screen = pygame.display.set_mode((screen_width,screen_height))
 
 cell_group = pygame.sprite.Group()
 
-for x in range(cell_row):
-    for y in range(cell_column):
-        cell_group.add(Cell(x,y,cell_width,color))
-print(f"Created {cell_row*cell_column} cell!")
-
-#print(frames)
-
 if hav_music: badapple.play()
 
 while True:
@@ -77,11 +60,15 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+    screen.fill(color_black)        
     this_frame = frames[str(frame_index)]
         
-    screen.fill((0,0,0))
-
-    cell_group.update()
+    cells_length = len(this_frame["list_x"])
+    for i in range(cells_length):
+        x = this_frame["list_x"][i]
+        y = this_frame["list_y"][i]
+        cell_rect = pygame.rect.Rect(x*cell_width,y*cell_width,cell_width,cell_width)
+        pygame.draw.rect(screen,color_white,cell_rect)
 
     frame_index += 1
 
