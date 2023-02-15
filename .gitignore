@@ -1,1 +1,6 @@
 player/data/badapple.json
+player/data/badapple-test.json
+frames-160/*
+player/player-local.py
+player/player-test.py
+badapple_generate_json-test.py
