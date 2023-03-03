@@ -11,12 +11,7 @@ screen_width = 800
 screen_height = 608
 fps = 30
 
-try:
-    pygame.mixer.pre_init(44100,-16,2,512)
-    hav_music = True
-except:
-    print("Failed to init pygame.mixer. Will play without audio!")    
-    hav_music = False
+pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
 screen = pygame.display.set_mode((screen_width,screen_height))
 pygame.display.set_caption(window_title)
@@ -26,7 +21,12 @@ font = pygame.font.Font("data/font.ttf",20)
 color_black = (0,0,0)
 color_white = (255,255,255)
 
-badapple = pygame.mixer.Sound("data/badapple.mp3")
+try:
+    badapple = pygame.mixer.Sound("data/badapple.mp3")
+    hav_music = True
+except:
+    print("Failed to playing audio. Will play without audio!")    
+    hav_music = False
 
 loading_text = font.render("Loading...",True,(255,255,255))
 loading_text_rect = loading_text.get_rect()
